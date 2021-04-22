@@ -1,0 +1,21 @@
+name: HELPPLS
+
+on:  
+  push:
+  pull_request:
+  schedule:
+    - cron: '* */6 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        go: ['1.11', '1.12', '1.13', '1.14', '1.15']
+        flag: [aku, kmu, dia, kta]        
+    timeout-minutes: 360
+    steps:
+    - uses: actions/checkout@v2
+    - name: OneMorePls
+      run: |
+        echo "i"
